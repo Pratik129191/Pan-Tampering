@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Web Page with Images</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 800px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .image-container {
+            display: flex;
+            padding: 0.5rem;
+        }
+
+        .image-container img {
+            width: 31.33%;
+            height: auto;
+            border-radius: 10px 10px 0 0;
+            padding: 0.5rem;
+        }
+
+        p {
+            padding: 20px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="image-container">
+            <img src="{{ upload }}" alt="Image 1">
+            <img src="{{ diff }}" alt="Image 2">
+            <img src="{{ thresh }}" alt="Image 3">
+        </div>
+            {% if pan.result == 'T' %}
+                <p>
+                    Tampered Pancard with Confidence Score {{ pan.confidence }}
+                </p>
+            {% else %}
+                <p>
+                    Original Image.
+                </p>
+            {% endif %}
+        <div class="button-container">
+          <a href="{{ back }}"><button>Back</button></a>
+          <a href="{{ home }}"><button href="{{ home }}">Home</button></a>
+        </div>
+    </div>
+
+</body>
+</html>
